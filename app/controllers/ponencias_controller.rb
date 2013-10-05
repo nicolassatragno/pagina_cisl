@@ -1,12 +1,17 @@
 class PonenciasController < ApplicationController
   def new
+    if @ponencia == nil then
+      @ponencia = Ponencia.new
+    end
   end
 
   def create
     @ponencia = Ponencia.new(parametros)
-    @ponencia.save
-
-    redirect_to action: :show, id: @ponencia.id
+    if @ponencia.save
+      redirect_to action: :show, id: @ponencia.id
+    else
+      render 'new'
+    end
   end
 
   def show

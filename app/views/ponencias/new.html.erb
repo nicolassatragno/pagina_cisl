@@ -5,7 +5,7 @@
   <div id="errores">
      No se ha podido guardar la ponencia: <br>
      <% @ponencia.errors.full_messages.each do |e| %>
-       <%= e %>
+       <%= e %> <br>
      <% end %>
   </div>
   <% end %>

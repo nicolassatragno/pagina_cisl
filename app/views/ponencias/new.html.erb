@@ -1,0 +1,21 @@
+<h1>Crear ponencia</h1>
+<p>Llene el formulario y presione confirmar</p>
+  <%= form_for :ponencia, url: ponencias_path do |p| %>
+<p>
+  <%= p.label :titulo %><br>
+  <%= p.text_field :titulo %>
+</p>
+
+<p>
+  <%= p.label :expositor %><br>
+  <%= p.text_field :expositor %>
+</p>
+
+<p>
+  <%= p.label :descripcion %> <br>
+  <%= p.text_area :descripcion %>
+</p>
+<p>
+  <%= p.submit :Confirmar %>
+</p>
+<% end %>

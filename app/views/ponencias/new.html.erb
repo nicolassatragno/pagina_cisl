@@ -1,6 +1,14 @@
 <h1>Crear ponencia</h1>
 <p>Llene el formulario y presione confirmar</p>
   <%= form_for :ponencia, url: ponencias_path do |p| %>
+  <% if @ponencia.errors.any? %>
+  <div id="errores">
+     No se ha podido guardar la ponencia: <br>
+     <% @ponencia.errors.full_messages.each do |e| %>
+       <%= e %> <br>
+     <% end %>
+  </div>
+  <% end %>
 <p>
   <%= p.label :titulo, "Título" %><br>
   <%= p.text_field :titulo %>

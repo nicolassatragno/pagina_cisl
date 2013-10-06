@@ -1,0 +1,26 @@
+<h2>Charlas</h2>
+<% if @ponencias.nil? or @ponencias.empty? %>
+  <p> Todavía no hay ponencias. ¡Empieza creando una! </p>
+<% else %>
+<table class="listado">
+  <tr>
+    <th>Expositor</th>
+    <th>Título</th>
+    <th>Ir</th>
+  </tr>
+  <% @ponencias.each do |p| %>
+  <tr>
+    <td>
+      <%= p.expositor %>
+    </td>
+    <td>
+      <%= p.titulo %>
+    </td>
+    <td>
+      <%= link_to image_tag("lupa.png"), ponencia_path(p) %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<% end %>
+<table>

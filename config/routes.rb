@@ -1,5 +1,6 @@
 PaginaCisl::Application.routes.draw do
   resources :ponencias
+  resources :usuarios
   get "raiz/index"
   root "raiz#index"
   # The priority is based upon order of creation: first created -> highest priority.

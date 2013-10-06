@@ -11,12 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131005170336) do
+ActiveRecord::Schema.define(version: 20131006213753) do
 
   create_table "ponencia", force: true do |t|
     t.string   "titulo"
     t.string   "expositor"
     t.text     "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "usuarios", force: true do |t|
+    t.string   "nombre"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

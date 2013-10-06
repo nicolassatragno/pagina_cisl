@@ -1,0 +1,21 @@
+<h1>Registrarse</h1>
+<br>
+  <% if @usuario.errors.any? %>
+  <div id="errores">
+     No se ha podido registar al usuario: <br>
+     <% @usuario.errors.full_messages.each do |e| %>
+       <%= e %> <br>
+     <% end %>
+  </div>
+  <% end %>
+<br>
+<%= form_for :usuario, url: usuarios_path do |u| %>
+<%= u.label :nombre %>
+<p><%= u.text_field :nombre %></p>
+<%= u.label :password, "Clave" %>
+<p><%= u.password_field :password %></p>
+<%= u.label :password_confirm, "Confirmar clave" %>
+<p><%= u.password_field :password_confirmation %></p>
+<%= u.submit "Registrarse" %>
+<% end %>
+<p></p>

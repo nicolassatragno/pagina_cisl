@@ -1,2 +1,19 @@
-<h1>Usuario#login</h1>
-<p>Find me in app/views/usuario/login.html.erb</p>
+<h1>Inicio de sesión</h1>
+<br>
+  <% if @usuario.errors.any? %>
+  <div id="errores">
+     No se ha podido registar al usuario: <br>
+     <% @usuario.errors.full_messages.each do |e| %>
+       <%= e %> <br>
+     <% end %>
+  </div>
+  <% end %>
+<br>
+<%= form_for :usuario, url: usuarios_login_post_path do |u| %>
+<%= u.label :nombre %>
+<p><%= u.text_field :nombre %></p>
+<%= u.label :password, "Clave" %>
+<p><%= u.password_field :password %></p>
+<%= u.submit "Iniciar sesión" %>
+<% end %>
+<p></p>

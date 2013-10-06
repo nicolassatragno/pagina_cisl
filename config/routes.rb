@@ -1,4 +1,7 @@
 PaginaCisl::Application.routes.draw do
+  get "usuarios/login"
+  post "usuarios/login_post"
+  get "usuarios/logout"
   resources :ponencias
   resources :usuarios
   get "raiz/index"

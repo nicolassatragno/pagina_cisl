@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PaginaCisl</title>
+  <title>CISL 2013</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="outer">
+  <div id="inner">
+    <div id="header">
+			    <h1><span>CISL</span><sup>2013</sup></h1>
+    </div>
+	
+	  <div id="splash"></div>
 
-<%= yield %>
-
+	  <div id="menu">
+		  <ul>
+			  <li class="first"><%= link_to "Inicio", raiz_index_path %></li>
+			  <li><%= link_to "Crear ponencia", new_ponencia_path %></li>
+			  <li><a href="mailto:nsatragno@gnome.org">Contacto</a></li>
+		  </ul>
+  	</div>
+  <%= yield %>
+  <div id="footer">
+    Creado por Nicolás Satragno para la CISL 2013
+  </div>
+  </div>
+</div>
 </body>
 </html>

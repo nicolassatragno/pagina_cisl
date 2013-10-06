@@ -27,4 +27,4 @@
   <%= p.submit :Confirmar %>
 </p>
 <% end %>
-<%= link_to "Raíz", raiz_index_path %>
+<%= link_to "Volver", raiz_index_path %>

@@ -9,7 +9,7 @@
 <body>
 <div id="outer">
   <div id="inner">
-    <div id="header">
+    <div id="header" onclick="window.location = '<%= raiz_index_path %>'">
 			    <h1><span>CISL</span><sup>2013</sup></h1>
     </div>
 	
@@ -19,7 +19,6 @@
 		  <ul>
 			  <li class="first"><%= link_to "Inicio", raiz_index_path %></li>
 			  <li><%= link_to "Crear ponencia", new_ponencia_path %></li>
-			  <li><%= link_to "Registrarse", new_usuario_path %></li>
 			  <% if session["login"].nil? %>
   			  <li><%= link_to "Registrarse", new_usuario_path %></li>
   			  <li><%= link_to "Inciar sesión", usuarios_login_path %></li>

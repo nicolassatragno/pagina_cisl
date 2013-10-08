@@ -17,6 +17,11 @@
           <li>
             <%= link_to "Detalles", ponencia_path(p) %>    
           </li>
+          <% if session[:nivel] != nil and session[:nivel] >= 2 %>
+          <li>
+            <%= link_to "Eliminar", ponencia_path(p), :confirm => "¿Estás seguro?", :method => :delete %>    
+          </li>
+          <% end %>
         </ul>
       </div>
 

@@ -18,17 +18,18 @@
 	  <div id="menu">
 		  <ul>
 			  <li class="first"><%= link_to "Inicio", raiz_index_path %></li>
-			  <li><%= link_to "Crear ponencia", new_ponencia_path %></li>
 			  <% if session["login"].nil? %>
   			  <li><%= link_to "Registrarse", new_usuario_path %></li>
   			  <li><%= link_to "Inciar sesión", usuarios_login_path %></li>
   			<% else %>
+  			  <li><%= link_to "Crear ponencia", new_ponencia_path %></li>
   			  <li><%= link_to "Cerrar sesión", usuarios_logout_path %></li>
 			  <% end %>
 			  <li><a href="mailto:nsatragno@gnome.org">Contacto</a></li>
 		  </ul>
   	</div>
   	<%= flash[:mensaje] %>
+  	<br />
   <%= yield %>
   <div id="footer">
     Creado por Nicolás Satragno para la CISL 2013

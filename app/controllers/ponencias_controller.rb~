@@ -1,6 +1,6 @@
 class PonenciasController < ApplicationController
   def new
-    if @ponencia = nil then
+    if @ponencia == nil then
       @ponencia = Ponencia.new
     end
   end
@@ -16,6 +16,12 @@ class PonenciasController < ApplicationController
 
   def show
     @ponencia = Ponencia.find(params[:id])
+  end
+  
+  def destroy
+    ponencia = Ponencia.find(params[:id])
+    flash[:mensaje] = "La ponencia " + ponencia.titulo + " se ha borrado"
+    ponencia.destroy
   end
 
   private

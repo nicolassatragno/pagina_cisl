@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131006213753) do
+ActiveRecord::Schema.define(version: 20131008000301) do
 
   create_table "ponencia", force: true do |t|
     t.string   "titulo"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20131006213753) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "nivel"
   end
 
 end

@@ -5,6 +5,7 @@ class UsuariosController < ApplicationController
 
   def create
     @usuario = Usuario.new(params[:usuario].permit(:nombre, :password, :password_confirmation))
+    @usuario.nivel = 1 #Establecemos el nivel inicial al básico
     if @usuario.save
       flash[:mensaje] = "El usuario se ha registrado exitosamente"
       redirect_to raiz_index_path
@@ -22,23 +23,21 @@ class UsuariosController < ApplicationController
     clave = params[:usuario][:password]
     usuario = Usuario.find_by nombre: nombre
     @usuario = Usuario.new :nombre => nombre, :password => clave
-    if usuario.nil?
-      flash[:mensaje] = "El usuario no existe"
-      render "login"
-      return
-    elsif not usuario.authenticate clave
-      flash[:mensaje] = "La clave es incorrecta"
+    if usuario.nil? || (!usuario.authenticate clave)
+      flash.now[:mensaje] = "Los datos de login no son correctos"
       render "login"
       return
     else
       flash[:mensaje] = "Bienvenido, " + nombre
       session[:login] = usuario.id
+      session[:nivel] = usuario.nivel
       redirect_to raiz_index_path
     end
   end
 
   def logout
     session[:login] = nil
+    session[:nivel] = nil
     flash[:mensaje] = "Has cerrado sesion correctamente"
     redirect_to raiz_index_path
   end
